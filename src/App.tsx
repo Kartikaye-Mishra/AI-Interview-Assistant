@@ -2,8 +2,20 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import AuthPage from "./pages/Auth";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
+import { useEffect } from "react";
 
 export default function App() {
+   useEffect(() => {
+    const wakeUpBackend = async () => {
+      try {
+        await fetch(import.meta.env.VITE_BACKEND_URL + "/ping");
+      } catch (err) {
+        console.error("Backend wake-up failed:", err);
+      }
+    };
+
+    wakeUpBackend();
+  }, []);
   return (
     
             <BrowserRouter>
