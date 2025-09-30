@@ -137,7 +137,8 @@ export function useInterviewChat(timeAlloted = 60) {
       if(err instanceof Error){
         console.log("AI Api is not Working");
 
-      }
+      } 
+       setShowFieldsForm(true);
       toast.error("AI Api is not Working")
     }
 
