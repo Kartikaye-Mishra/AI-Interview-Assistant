@@ -3,16 +3,14 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
 import { Input } from "../components/ui/input";
 
 
-// import { useAuth } from "@/hooks/use-auth";
 import { ArrowRight, Mail, UserX } from "lucide-react";
-import {  useState } from "react";
+
 import { useNavigate } from "react-router";
 
 
@@ -20,15 +18,16 @@ import { useNavigate } from "react-router";
 
 export default function AuthPage() {
   const navigate = useNavigate();
-  const [step, setStep] = useState<"signIn" | "otp">("signIn");
+
 
   return (
     <div className="min-h-screen flex flex-col">
       {/* Centered Auth UI */}
       <div className="flex-1 flex items-center justify-center">
         <Card className="min-w-[350px] pb-0 border shadow-md">
-          {step === "signIn" ? (
-            <>
+        
+        
+          <>
               <CardHeader className="text-center">
                 <div className="flex justify-center">
                   <img
@@ -61,7 +60,7 @@ export default function AuthPage() {
                     type="button"
                     variant="outline"
                     size="icon"
-                    onClick={() => setStep("otp")}
+                    onClick= { () => navigate("/dashboard")}
                   >
                     <ArrowRight className="h-4 w-4" />
                   </Button>
@@ -91,58 +90,16 @@ export default function AuthPage() {
                 </div>
               </CardContent>
             </>
-          ) : (
-            <>
-              <CardHeader className="text-center mt-4">
-                <CardTitle>Check your email</CardTitle>
-                <CardDescription>
-                  We've sent a code to <b>name@example.com</b>
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="pb-4">
-                <div className="flex justify-center gap-2">
-                  {Array.from({ length: 6 }).map((_, index) => (
-                    <Input
-                      key={index}
-                      type="text"
-                      className="w-10 text-center"
-                      maxLength={1}
-                    />
-                  ))}
-                </div>
-              </CardContent>
-
-              <CardFooter className="flex-col gap-2">
-                <Button
-                  type="button"
-                  className="w-full"
-                  onClick={() => navigate("/dashboard")}
-                >
-                  Verify code
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  onClick={() => setStep("signIn")}
-                  className="w-full"
-                >
-                  Use different email
-                </Button>
-              </CardFooter>
-            </>
-          )}
 
           <div className="py-4 px-6 text-xs text-center text-muted-foreground bg-muted border-t rounded-b-lg">
             Secured by{" "}
             <a
-              href="https://vly.ai"
+              href="/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-primary transition-colors"
             >
-              vly.ai
+             Comapany Name Here
             </a>
           </div>
         </Card>

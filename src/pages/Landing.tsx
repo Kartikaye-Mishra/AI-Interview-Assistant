@@ -184,7 +184,7 @@ export default function Landing() {
               Join thousands of professionals who have improved their interview skills 
               with our AI-powered platform.
             </p>
-            <Button size="lg" className="gap-2 text-base px-8">
+            <Button onClick={()=>navigate("/auth")} size="lg" className="gap-2 text-base px-8">
               Get Started Now
               <ArrowRight className="w-5 h-5" />
             </Button>
@@ -204,12 +204,12 @@ export default function Landing() {
           <p className="text-sm text-muted-foreground">
             Powered by{" "}
             <a
-              href="https://vly.ai"
+              href="/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-primary transition-colors"
             >
-              vly.ai
+             Comapany Name Here
             </a>
           </p>
         </div>

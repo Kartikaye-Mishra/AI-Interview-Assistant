@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import { MessageCircle, Users } from "lucide-react";
 
 import { MainHeader } from "../components/MainHeader/MainHeader";
-import { IntervieweeChat } from "../components/IntervieweeChat/IntervieweeChat";
+import IntervieweeChat  from "../components/IntervieweeChat/IntervieweeChat";
 import { InterviewerDashboard } from "../components/InterviewerDashboard/InterviewerDashboard";
 
 export default function Dashboard() {

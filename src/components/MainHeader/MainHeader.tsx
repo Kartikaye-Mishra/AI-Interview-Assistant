@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
 import { LogOut, Sparkles } from "lucide-react";
@@ -9,6 +10,7 @@ interface MainHeaderProps {
 }
 
 export const MainHeader: React.FC<MainHeaderProps> = ({ user }) => {
+  const navigate = useNavigate();
   return (
     <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-4xl mx-auto px-6 py-4">
@@ -30,7 +32,7 @@ export const MainHeader: React.FC<MainHeaderProps> = ({ user }) => {
             <Button
               variant="ghost"
               size="sm"
-              // onClick={() => signOut()} // Removed authentication hook logic
+              onClick={() => navigate("/")} // Removed authentication hook logic
               className="text-muted-foreground hover:text-foreground"
             >
               <LogOut className="w-4 h-4" />
