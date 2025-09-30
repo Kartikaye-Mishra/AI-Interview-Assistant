@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import AuthPage from "./pages/Auth";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
+import { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
 
          
           </Routes>
+          <Toaster />
         </BrowserRouter>
 
   

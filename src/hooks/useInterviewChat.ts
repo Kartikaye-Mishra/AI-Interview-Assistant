@@ -4,7 +4,7 @@ import { parseResumeAPI, fetchInterviewQuestions, submitInterviewEvaluation } fr
 import type { Message } from "../components/IntervieweeChat/InterviewChatArea";
 import { saveCandidate } from "../utils/candidateStorage";
 import type { BackendResult, CandidateEntry } from "../types/interview";
-
+import { toast } from "react-hot-toast";
 // ---------------- Types ----------------
 export type Fields = { name: string; email: string; phone: string; resumeVerdict: string };
 
@@ -33,7 +33,7 @@ export const FlowStep = {
 export type FlowStep = (typeof FlowStep)[keyof typeof FlowStep];
 
 // ---------------- Hook ----------------
-export function useInterviewChat(timeAlloted = 10) {
+export function useInterviewChat(timeAlloted = 60) {
   // States
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [parsedFields, setParsedFields] = useState<Fields>({ name: "", email: "", phone: "", resumeVerdict: "" });
@@ -128,10 +128,21 @@ export function useInterviewChat(timeAlloted = 10) {
         phone: data.phone || "",
         resumeVerdict: data.resumeVerdict || "",
       };
+      toast.success("Resume Parsed Successfully");
       setParsedFields(fields);
       persistSession({ fields, timeLeft: timeAlloted });
       setShowFieldsForm(true);
-    } finally {
+    }
+    catch{ (err:unknown) => {
+      if(err instanceof Error){
+        console.log("AI Api is not Working");
+
+      }
+      toast.error("AI Api is not Working")
+    }
+
+    }
+     finally {
       setParsing(false);
     }
   };
