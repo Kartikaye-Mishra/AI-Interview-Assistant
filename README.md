@@ -1,54 +1,58 @@
-# React + TypeScript + Vite
+# AI Interview Assistant – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend** of the AI Interview Assistant web application. It is built using **React**, **TypeScript**, **Vite**, and **Tailwind CSS**, providing an interactive UI for candidates to take AI-powered interviews and for recruiters to monitor results.  
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)  
+- [Tech Stack](#tech-stack)  
+- [Getting Started](#getting-started)  
+- [Environment Variables](#environment-variables)  
+- [Available Scripts](#available-scripts)  
+- [Project Structure](#project-structure)  
+- [Deployment](#deployment)  
+- [Contributing](#contributing)  
+- [License](#license)  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Resume upload and AI parsing  
+- Interactive AI interview with real-time scoring  
+- Candidate session persistence  
+- Timed questions with automatic scoring  
+- Recruiter dashboard with candidate summary and analytics  
+- Notifications and toast messages for user feedback  
+- Responsive, modern UI with violet-white theme  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tech Stack
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **React** – Component-based UI  
+- **TypeScript** – Strong typing for safer code  
+- **Vite** – Fast development and build tool  
+- **Tailwind CSS** – Utility-first styling  
+- **react-router-dom** – Routing for SPA  
+- **react-hot-toast** – Notifications  
+- **Axios** – API communication  
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 18.x  
+- npm >= 9.x  
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <frontend-repo-url>
+cd ai-interview-assistant-frontend
+
+# Install dependencies
+npm install
