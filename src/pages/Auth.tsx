@@ -99,7 +99,7 @@ export default function AuthPage() {
               rel="noopener noreferrer"
               className="underline hover:text-primary transition-colors"
             >
-             Comapany Name Here
+             SwipeTask
             </a>
           </div>
         </Card>
