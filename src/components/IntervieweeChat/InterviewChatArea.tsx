@@ -28,7 +28,10 @@ export const InterviewChatArea: React.FC<InterviewChatAreaProps> = ({
 }) => {
   const minutes = String(Math.floor(timeLeft / 60)).padStart(2, "0");
   const seconds = String(timeLeft % 60).padStart(2, "0");
-
+let disableTimer = false;
+  if(currentQuestion>totalQuestions){
+    disableTimer = true;
+}
   return (
     <Card className="border-0 h-[70vh] md:h-[65vh] flex flex-col overflow-hidden">
       {/* Sticky Top Bar */}
@@ -37,9 +40,17 @@ export const InterviewChatArea: React.FC<InterviewChatAreaProps> = ({
           <div className="text-sm text-muted-foreground">
             Question {currentQuestion}/{totalQuestions} — {difficulty}
           </div>
+          {
+
+            disableTimer ?
+          <div className="text-sm font-semibold px-3 py-1 rounded-full bg-primary/70 text-primary-foreground">
+            {'00'}m:{"00"}s
+          </div>
+          :
           <div className="text-sm font-semibold px-3 py-1 rounded-full bg-primary text-primary-foreground">
             {minutes}m:{seconds}s
           </div>
+}
         </div>
       </div>
 
@@ -82,7 +93,7 @@ export const InterviewChatArea: React.FC<InterviewChatAreaProps> = ({
             Send
           </Button>
         </div>
-        {timeLeft <= 0 && (
+        {(timeLeft <= 0 && !disableTimer)   &&  (
           <p className="mt-2 text-xs text-muted-foreground">
             Time's up. Your next question will begin after submitting your last answer.
           </p>

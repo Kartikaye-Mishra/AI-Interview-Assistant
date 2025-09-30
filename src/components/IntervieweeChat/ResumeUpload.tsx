@@ -9,7 +9,7 @@ interface ResumeUploadProps {
   resumeFile: File | null;
   setResumeFile: (file: File | null) => void;
   onParse: () => void;
-  parsing: boolean;
+  parsing?: boolean;
 }
 
 export function ResumeUpload({ resumeFile, setResumeFile, onParse, parsing }: ResumeUploadProps) {
@@ -50,7 +50,7 @@ export function ResumeUpload({ resumeFile, setResumeFile, onParse, parsing }: Re
               <Input
                 type="file"
                 accept=".pdf,.doc,.docx"
-                onChange={(e: any) => {
+               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   const file = e.target.files?.[0] ?? null;
                   if (file) setResumeFile(file);
                 }}

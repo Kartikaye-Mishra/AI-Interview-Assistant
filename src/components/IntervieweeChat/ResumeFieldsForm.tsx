@@ -7,6 +7,7 @@ type Fields = {
   name: string;
   email: string;
   phone: string;
+  resumeVerdict: string;
 };
 
 interface ResumeFieldsFormProps {
@@ -22,6 +23,7 @@ export const ResumeFieldsForm: React.FC<ResumeFieldsFormProps> = ({
     name: parsedFields.name || "",
     email: parsedFields.email || "",
     phone: parsedFields.phone || "",
+    resumeVerdict: parsedFields.resumeVerdict || "",
   });
 
   const handleChange = (key: keyof Fields, value: string) => {
