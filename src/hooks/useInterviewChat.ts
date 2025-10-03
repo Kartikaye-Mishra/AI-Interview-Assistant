@@ -139,11 +139,13 @@ export function useInterviewChat(timeAlloted = 60) {
 
       } 
        setShowFieldsForm(true);
+       
       toast.error("AI Api is not Working")
     }
 
     }
      finally {
+       setShowFieldsForm(true);
       setParsing(false);
     }
   };
@@ -179,61 +181,7 @@ const handleConfirmFields = async (fields: Fields) => {
   }
 };
 
-// const finalizeInterviewSession = async () => {
-//   try {
-//     const payload = {
-//       resumeVerdict: parsedFields.resumeVerdict,
-//       answers: questions.map((q, idx) => ({
-//         questionId: q.id,
-//         question: q.question,                        // ✅ include question text
-//         answer: messages[idx * 2 + 1]?.text || "Unanswered", // user answer
-//         difficulty: q.difficulty,
-//       })),
-//     };
 
-  
-//     const res = await submitInterviewEvaluation(payload);
-
-//         // Construct candidate entry
-//    const candidateEntry: CandidateEntry = {
-//   id: crypto.randomUUID(),
-//   name: parsedFields.name || "Candidate",
-//   email: parsedFields.email,
-//   phone: parsedFields.phone || "",
-//   finalScore: res.data.totalScore,
-//   status: "Complete",
-//   history: res.data.results.map((r: BackendResult) => ({
-//     question: r.question,
-//     answer: r.answer || "Unanswered",
-//     aiScore: r.aiScore,
-//     aiJustification: r.aiJustification,
-//     difficulty: r.difficulty,
-//   })),
-//   summary: res.data.finalVerdict,
-// };
-
-//     // Save to localStorage
-//     saveCandidate(candidateEntry);
-
-//     // Store final result locally
-//     localStorage.setItem(
-//       "interviewResult",
-//       JSON.stringify({
-//         id: crypto.randomUUID(),
-//         name: parsedFields.name || "Candidate",
-//         email: parsedFields.email,
-//         finalScore: res.data.totalScore,
-//         details: res.data,
-//       })
-//     );
-
-//     // Mark interview as completed
-//     interviewCompletedRef.current = true;
-//     persistSession({ interviewCompleted: true });
-//   } catch (err) {
-//     console.error("Failed to finalize interview session:", err);
-//   }
-// };
 const finalizeInterviewSession = async () => {
   const payload = {
     resumeVerdict: parsedFields.resumeVerdict,
